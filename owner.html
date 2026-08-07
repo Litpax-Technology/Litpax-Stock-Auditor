@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Owner Portal · Stock Auditor</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="app-header">
+    <div>
+      <h1>Owner Portal</h1>
+      <div class="sub">Stock Audit — Discrepancies</div>
+    </div>
+    <a href="index.html">← New Audit</a>
+  </header>
+
+  <div class="wrap-wide">
+    <div class="filters">
+      <select id="fStatus">
+        <option value="Open">Open</option>
+        <option value="Closed">Closed</option>
+        <option value="Clear">Clear (no discrepancy)</option>
+        <option value="">All</option>
+      </select>
+      <select id="fLocation">
+        <option value="">All locations</option>
+      </select>
+      <input type="text" id="fSearch" placeholder="Search material / root cause…" />
+      <button class="btn btn-sm btn-ghost" id="refreshBtn" style="width:auto;">Refresh</button>
+      <div class="spacer"></div>
+      <span class="count" id="count"></span>
+    </div>
+
+    <div id="listArea">
+      <div class="loading">Loading audits…</div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="config.js"></script>
+  <script src="owner.js"></script>
+</body>
+</html>
