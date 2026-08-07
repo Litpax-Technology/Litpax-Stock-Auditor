@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stock Auditor · Litpax</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="app-header">
+    <div>
+      <h1>Stock Auditor</h1>
+      <div class="sub">Litpax Technology</div>
+    </div>
+    <a href="owner.html">Owner Portal →</a>
+  </header>
+
+  <div class="wrap">
+    <div class="card">
+      <div class="field">
+        <label>Audited By <span class="hint">(optional)</span></label>
+        <input type="text" id="auditedBy" placeholder="Your name" autocomplete="off" />
+      </div>
+
+      <div class="field">
+        <label>Name of Material Audited <span class="req">*</span> <span class="hint">(pick or type)</span></label>
+        <input type="text" id="material" list="materialList" placeholder="Select or type material" autocomplete="off" />
+        <datalist id="materialList"></datalist>
+      </div>
+
+      <div class="field">
+        <label>Location <span class="req">*</span> <span class="hint">(choose one or more)</span></label>
+        <div class="chips" id="locationChips"></div>
+      </div>
+
+      <div class="field">
+        <label>Depth <span class="req">*</span></label>
+        <select id="depth">
+          <option value="">Select depth…</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>Discrepancy Found <span class="req">*</span></label>
+        <div class="toggle" id="discToggle">
+          <button type="button" data-val="No" class="on">No</button>
+          <button type="button" data-val="Yes">Yes</button>
+        </div>
+      </div>
+
+      <!-- Shown only when Discrepancy = Yes -->
+      <div class="conditional" id="discBlock">
+        <div class="field">
+          <label>Quantity of Discrepancy <span class="req">*</span></label>
+          <input type="number" id="qty" step="any" placeholder="e.g. 12" />
+        </div>
+        <div class="field">
+          <label>Root Cause of Discrepancy</label>
+          <select id="rootCause"><option value="">Select…</option></select>
+        </div>
+        <div class="field">
+          <label>Action Required</label>
+          <select id="action"><option value="">Select…</option></select>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Photo <span class="hint">(optional)</span></label>
+        <input type="file" id="photo" accept="image/*" capture="environment" />
+      </div>
+
+      <button class="btn" id="submitBtn">Submit Audit</button>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
